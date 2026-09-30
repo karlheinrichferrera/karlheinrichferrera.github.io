@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karl Heinrich Ferrera</title>
+  <title>Karl Heinrich Ferrera — GoHighLevel Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #fafafa;
       --bg-card: #ffffff;
+      --bg-alt: #f3f4f6;
       --text: #1a1a1a;
       --text-muted: #6b7280;
       --accent: #2563eb;
       --accent-hover: #1d4ed8;
+      --accent-glow: rgba(37, 99, 235, 0.15);
+      --green: #10b981;
+      --orange: #f59e0b;
+      --purple: #8b5cf6;
       --border: #e5e7eb;
       --shadow: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
@@ -21,13 +26,18 @@
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0f0f0f;
-        --bg-card: #1a1a1a;
+        --bg: #0a0a0a;
+        --bg-card: #141414;
+        --bg-alt: #111111;
         --text: #f0f0f0;
         --text-muted: #9ca3af;
         --accent: #60a5fa;
         --accent-hover: #93bbfd;
-        --border: #2a2a2a;
+        --accent-glow: rgba(96, 165, 250, 0.1);
+        --green: #34d399;
+        --orange: #fbbf24;
+        --purple: #a78bfa;
+        --border: #222222;
         --shadow: 0 1px 3px rgba(0,0,0,0.3);
         --shadow-lg: 0 10px 30px rgba(0,0,0,0.3);
       }
@@ -40,17 +50,17 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: var(--bg);
       border-bottom: 1px solid var(--border);
       z-index: 100;
-      backdrop-filter: blur(12px);
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
     }
 
     nav .container {
@@ -63,11 +73,14 @@
     }
 
     nav .logo {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.1rem;
       color: var(--text);
       text-decoration: none;
+      letter-spacing: -0.02em;
     }
+
+    nav .logo span { color: var(--accent); }
 
     nav ul {
       display: flex;
@@ -85,6 +98,7 @@
 
     nav a:hover { color: var(--accent); }
 
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -92,48 +106,78 @@
       padding: 6rem 2rem 4rem;
       max-width: 1100px;
       margin: 0 auto;
+      position: relative;
     }
 
-    .hero-content { max-width: 600px; }
+    .hero-content { max-width: 640px; }
 
     .hero-tag {
       display: inline-block;
-      background: color-mix(in srgb, var(--accent) 12%, transparent);
-      color: var(--accent);
+      background: color-mix(in srgb, var(--green) 12%, transparent);
+      color: var(--green);
       padding: 0.35rem 0.85rem;
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
       letter-spacing: 0.02em;
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      animation: pulse 2s infinite;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.15;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
       margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
-      max-width: 480px;
+      max-width: 500px;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
     }
 
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero p strong { color: var(--text); font-weight: 600; }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.25s;
       cursor: pointer;
       border: none;
     }
@@ -141,9 +185,14 @@
     .btn-primary {
       background: var(--accent);
       color: #fff;
+      box-shadow: 0 4px 14px var(--accent-glow);
     }
 
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
 
     .btn-secondary {
       background: var(--bg-card);
@@ -151,8 +200,44 @@
       border: 1px solid var(--border);
     }
 
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
 
+    /* Stats strip */
+    .stats-strip {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+
+    .stats-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* Sections */
     section {
       padding: 5rem 2rem;
       max-width: 1100px;
@@ -169,64 +254,80 @@
     }
 
     .section-title {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 2.2rem;
+      font-weight: 800;
       margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
 
     .section-desc {
       color: var(--text-muted);
-      max-width: 520px;
+      max-width: 540px;
       margin-bottom: 3rem;
+      font-size: 1.05rem;
     }
 
-    .projects-grid {
+    /* Services */
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.5rem;
     }
 
-    .project-card {
+    .service-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      transition: all 0.2s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card:hover {
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--purple));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-card:hover {
       box-shadow: var(--shadow-lg);
-      transform: translateY(-2px);
-      border-color: var(--accent);
+      transform: translateY(-3px);
+      border-color: transparent;
     }
 
-    .project-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       margin-bottom: 1.25rem;
     }
 
-    .project-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
     }
 
-    .project-card p {
+    .service-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      line-height: 1.65;
     }
 
-    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.25rem; }
 
     .tag {
       font-size: 0.75rem;
@@ -237,6 +338,46 @@
       font-weight: 500;
     }
 
+    /* Process */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      counter-reset: step;
+    }
+
+    .process-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      position: relative;
+      counter-increment: step;
+    }
+
+    .process-step::before {
+      content: counter(step, decimal-leading-zero);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.15;
+      line-height: 1;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .process-step h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -247,7 +388,10 @@
     .about-text p {
       color: var(--text-muted);
       margin-bottom: 1rem;
+      font-size: 1.02rem;
     }
+
+    .about-text p strong { color: var(--text); font-weight: 600; }
 
     .skills-list {
       display: flex;
@@ -257,14 +401,50 @@
     }
 
     .skill-tag {
-      padding: 0.4rem 0.85rem;
+      padding: 0.45rem 0.9rem;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 8px;
       font-size: 0.85rem;
       font-weight: 500;
+      transition: all 0.2s;
     }
 
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Testimonial */
+    .testimonial-section {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+    }
+
+    .testimonial-container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .testimonial-quote::before { content: '\201C'; color: var(--accent); font-size: 2rem; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+    .testimonial-quote::after { content: '\201D'; color: var(--accent); font-size: 2rem; line-height: 0; vertical-align: -0.3em; margin-left: 0.1em; }
+
+    .testimonial-author { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+    .testimonial-author strong { color: var(--text); }
+
+    /* Contact */
     .contact-section {
       text-align: center;
       padding: 6rem 2rem;
@@ -275,9 +455,17 @@
     .contact-section p {
       color: var(--text-muted);
       margin-bottom: 2rem;
-      max-width: 440px;
+      max-width: 480px;
       margin-left: auto;
       margin-right: auto;
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -288,10 +476,35 @@
       font-size: 0.85rem;
     }
 
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       nav ul { gap: 1.25rem; }
       .about-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .process-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -299,6 +512,8 @@
       nav ul { display: none; }
       section { padding: 3rem 1rem; }
       .hero { padding: 5rem 1rem 3rem; }
+      .stats-strip { padding: 2rem 1rem; }
+      .stat-number { font-size: 2rem; }
     }
   </style>
 </head>
@@ -306,9 +521,10 @@
 
 <nav>
   <div class="container">
-    <a href="#" class="logo">KHF</a>
+    <a href="#" class="logo">KHF<span>.</span></a>
     <ul>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -317,94 +533,202 @@
 
 <div class="hero" id="home">
   <div class="hero-content">
-    <span class="hero-tag">Available for work</span>
-    <h1>Hi, I'm Karl Heinrich Ferrera</h1>
-    <p>I build things for the web. A developer passionate about creating clean, functional, and user-friendly digital experiences.</p>
+    <span class="hero-tag">Available for projects</span>
+    <h1>I turn GoHighLevel into your <span class="highlight">growth engine</span></h1>
+    <p>I help businesses <strong>automate their sales</strong>, capture more leads, and close more deals — all inside one platform. No guesswork, no wasted spend.</p>
     <div class="btn-group">
-      <a href="#projects" class="btn btn-primary">View my work</a>
-      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+      <a href="#services" class="btn btn-primary">See what I do</a>
+      <a href="#contact" class="btn btn-secondary">Book a call</a>
     </div>
   </div>
 </div>
 
-<section id="projects">
-  <div class="section-label">Projects</div>
-  <h2 class="section-title">Selected work</h2>
-  <p class="section-desc">A few projects I've built recently. Each one taught me something new.</p>
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="fade-in">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">GHL accounts built</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-number">10K+</div>
+      <div class="stat-label">Leads captured</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Automations deployed</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Client satisfaction</div>
+    </div>
+  </div>
+</div>
 
-  <div class="projects-grid">
-    <a href="#" class="project-card">
-      <div class="project-icon" style="background: #dbeafe; color: #2563eb;">&#9881;</div>
-      <h3>Task Manager App</h3>
-      <p>A full-stack productivity app with real-time collaboration, drag-and-drop boards, and smart notifications.</p>
-      <div class="tags">
-        <span class="tag">React</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">MongoDB</span>
-      </div>
-    </a>
+<section id="services">
+  <div class="section-label">Services</div>
+  <h2 class="section-title">What I build for you</h2>
+  <p class="section-desc">End-to-end GoHighLevel setups that turn strangers into customers — on autopilot.</p>
 
-    <a href="#" class="project-card">
-      <div class="project-icon" style="background: #dcfce7; color: #16a34a;">&#9733;</div>
-      <h3>Weather Dashboard</h3>
-      <p>A clean weather app with location search, 7-day forecasts, and interactive charts for historical data.</p>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent);">&#9881;</div>
+      <h3>Full CRM Setup & Migration</h3>
+      <p>Custom pipelines, smart lists, tags, and contact management — structured so your team actually uses it. Migrating from another CRM? I'll move everything over seamlessly.</p>
       <div class="tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">APIs</span>
-        <span class="tag">Chart.js</span>
+        <span class="tag">Pipelines</span>
+        <span class="tag">Custom Fields</span>
+        <span class="tag">Migration</span>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="project-card">
-      <div class="project-icon" style="background: #fef3c7; color: #d97706;">&#9998;</div>
-      <h3>Portfolio Generator</h3>
-      <p>A tool that helps developers create beautiful portfolio sites from a simple config file.</p>
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background: color-mix(in srgb, var(--green) 12%, transparent); color: var(--green);">&#9889;</div>
+      <h3>Workflow Automations</h3>
+      <p>Lead follow-ups, appointment reminders, re-engagement campaigns, review requests — all automated. Your business runs while you sleep.</p>
       <div class="tags">
-        <span class="tag">TypeScript</span>
-        <span class="tag">HTML/CSS</span>
-        <span class="tag">CLI</span>
+        <span class="tag">Workflows</span>
+        <span class="tag">Triggers</span>
+        <span class="tag">SMS/Email</span>
       </div>
-    </a>
+    </div>
+
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background: color-mix(in srgb, var(--orange) 12%, transparent); color: var(--orange);">&#9733;</div>
+      <h3>Funnels & Landing Pages</h3>
+      <p>High-converting funnels designed to capture leads and drive bookings. Connected to your automations so no lead falls through the cracks.</p>
+      <div class="tags">
+        <span class="tag">Funnels</span>
+        <span class="tag">Forms</span>
+        <span class="tag">Calendars</span>
+      </div>
+    </div>
+
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background: color-mix(in srgb, var(--purple) 12%, transparent); color: var(--purple);">&#128200;</div>
+      <h3>Reputation & Review Management</h3>
+      <p>Automated review requests after every job, responses that build trust, and a dashboard to track your online reputation across platforms.</p>
+      <div class="tags">
+        <span class="tag">Google Reviews</span>
+        <span class="tag">Automations</span>
+        <span class="tag">Reporting</span>
+      </div>
+    </div>
+
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent);">&#128268;</div>
+      <h3>Integrations & API Work</h3>
+      <p>Connect GHL to your existing tools — Stripe, Zapier, Google Sheets, Slack, webhooks, and custom API integrations that keep everything in sync.</p>
+      <div class="tags">
+        <span class="tag">API</span>
+        <span class="tag">Webhooks</span>
+        <span class="tag">Zapier</span>
+      </div>
+    </div>
+
+    <div class="service-card fade-in">
+      <div class="service-icon" style="background: color-mix(in srgb, var(--green) 12%, transparent); color: var(--green);">&#127919;</div>
+      <h3>White-Label SaaS Setup</h3>
+      <p>Want to resell GHL as your own? I'll set up your white-label SaaS — branded app, onboarding flows, snapshot templates, and client management.</p>
+      <div class="tags">
+        <span class="tag">SaaS Mode</span>
+        <span class="tag">Snapshots</span>
+        <span class="tag">Branding</span>
+      </div>
+    </div>
   </div>
 </section>
 
+<section id="process">
+  <div class="section-label">Process</div>
+  <h2 class="section-title">How we work together</h2>
+  <p class="section-desc">A clear, no-fluff process from kickoff to launch.</p>
+
+  <div class="process-grid">
+    <div class="process-step fade-in">
+      <h3>Discovery Call</h3>
+      <p>We hop on a call. I learn your business, your goals, and where you're leaving money on the table.</p>
+    </div>
+    <div class="process-step fade-in">
+      <h3>Strategy & Blueprint</h3>
+      <p>I map out the full system — funnels, automations, CRM structure — so you see exactly what you're getting.</p>
+    </div>
+    <div class="process-step fade-in">
+      <h3>Build & Test</h3>
+      <p>I build it out inside your GHL account, test every workflow, and make sure nothing breaks before it goes live.</p>
+    </div>
+    <div class="process-step fade-in">
+      <h3>Launch & Support</h3>
+      <p>We go live. I walk your team through everything and stick around for questions. You're never left guessing.</p>
+    </div>
+  </div>
+</section>
+
+<div class="testimonial-section">
+  <div class="testimonial-container fade-in">
+    <div class="section-label">Client feedback</div>
+    <p class="testimonial-quote">Karl completely transformed how we handle leads. We went from losing half our inquiries to booking 3x more appointments — all automated. Best investment we've made.</p>
+    <p class="testimonial-author"><strong>— Happy Client</strong> &middot; Local Service Business</p>
+  </div>
+</div>
+
 <section id="about">
   <div class="section-label">About</div>
-  <h2 class="section-title">A bit about me</h2>
+  <h2 class="section-title">The person behind the builds</h2>
 
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a developer who enjoys turning ideas into real, working products. I focus on writing clean code and building interfaces that people actually enjoy using.</p>
-      <p>When I'm not coding, you'll find me exploring new technologies, contributing to open source, or learning something completely unrelated to tech.</p>
+      <p>I'm <strong>Karl Heinrich Ferrera</strong>, a GoHighLevel specialist who helps businesses stop losing leads and start growing on autopilot.</p>
+      <p>I don't just "set up software." I build <strong>systems that work</strong> — automations that follow up faster than any human could, funnels that convert, and CRMs that actually make sense to use.</p>
+      <p>Whether you're a solo operator or an agency scaling to 100 clients, I'll build the GHL infrastructure that gets you there.</p>
     </div>
     <div>
-      <div class="section-label">Skills & Tools</div>
+      <div class="section-label">Tools & Expertise</div>
       <div class="skills-list">
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Python</span>
+        <span class="skill-tag">GoHighLevel</span>
+        <span class="skill-tag">CRM Architecture</span>
+        <span class="skill-tag">Workflow Automation</span>
+        <span class="skill-tag">Funnel Building</span>
+        <span class="skill-tag">API Integrations</span>
+        <span class="skill-tag">Zapier</span>
+        <span class="skill-tag">Stripe</span>
+        <span class="skill-tag">SMS & Email Marketing</span>
+        <span class="skill-tag">Google My Business</span>
+        <span class="skill-tag">Facebook Ads</span>
+        <span class="skill-tag">White-Label SaaS</span>
+        <span class="skill-tag">Snapshot Templates</span>
         <span class="skill-tag">HTML/CSS</span>
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">JavaScript</span>
       </div>
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact-section">
-  <div class="section-label">Contact</div>
-  <h2 class="section-title">Let's work together</h2>
-  <p>Have a project in mind or just want to say hello? I'd love to hear from you.</p>
-  <a href="mailto:karlheinrich.freelancer@gmail.com" class="btn btn-primary">Say hello</a>
+  <div class="section-label">Let's talk</div>
+  <h2 class="section-title">Ready to automate your growth?</h2>
+  <p>Tell me about your business. I'll tell you exactly how GHL can fix your biggest bottleneck — no strings attached.</p>
+  <div class="contact-links">
+    <a href="mailto:karlheinrich.freelancer@gmail.com" class="btn btn-primary">Get in touch</a>
+    <a href="https://github.com/karlheinrichferrera" class="btn btn-secondary">GitHub</a>
+  </div>
 </section>
 
 <footer>
   <p>&copy; 2026 Karl Heinrich Ferrera. All rights reserved.</p>
 </footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
