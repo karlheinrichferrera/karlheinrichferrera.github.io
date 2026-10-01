@@ -464,15 +464,6 @@
       letter-spacing: -0.01em;
     }
 
-    .project-client {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
     .project-body p {
       color: var(--text-muted);
       font-size: 0.86rem;
@@ -530,6 +521,15 @@
       border-color: rgba(236,72,153,0.15);
     }
 
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: var(--bg-alt);
+    }
+
     .project-link {
       font-family: var(--mono);
       font-size: 0.78rem;
@@ -545,6 +545,27 @@
     .project-link:hover {
       gap: 0.6rem;
       color: var(--accent-2);
+    }
+
+    .btn-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    .btn-live:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(99,102,241,0.3);
     }
 
     .services-grid {
@@ -888,14 +909,13 @@
   <div class="portfolio-grid">
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #1e3a5f, #2a6496);">Medicare Helper CRM Platform</div>
+      <img src="img/medicare-helper.jpg" alt="Insurtech CRM Landing Page" class="project-thumb" loading="lazy">
       <div class="project-body">
-        <h3>Medicare Helper — Proposed Page</h3>
-        <p class="project-client">Golden Years Design Benefits</p>
+        <h3>Insurtech CRM — Landing Page</h3>
         <p>A sleek, conversion-focused landing page for an insurtech CRM platform built on GoHighLevel. Features Request Access and Request Demo flows with enterprise-grade messaging.</p>
         <div class="project-meta">
           <span class="project-badge badge-landing">Landing Page</span>
-          <a href="https://medicarehelper.net/page" class="project-link" target="_blank">View live &#8594;</a>
+          <a href="https://medicarehelper.net/page" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
@@ -903,9 +923,8 @@
     <div class="project-card glass-card fade-in">
       <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #065f46, #10b981);">Medsupp Replacement Quiz</div>
       <div class="project-body">
-        <h3>Medsupp Replacement Quiz</h3>
-        <p class="project-client">T65 Projects 2026</p>
-        <p>Interactive quiz funnel that qualifies Medicare supplement leads and routes them to agents. Integrated with workflow automations for instant follow-up.</p>
+        <h3>Insurance Supplement Quiz</h3>
+        <p>Interactive quiz funnel that qualifies insurance supplement leads and routes them to agents. Integrated with workflow automations for instant follow-up.</p>
         <div class="project-meta">
           <span class="project-badge badge-funnel">Funnel</span>
         </div>
@@ -913,11 +932,10 @@
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #4338ca, #7c3aed);">Medicare Match Quiz</div>
+      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #4338ca, #7c3aed);">Plan Matching Quiz</div>
       <div class="project-body">
-        <h3>Medicare Match Quiz</h3>
-        <p class="project-client">T65 Projects 2026</p>
-        <p>A lead-qualifying quiz funnel that matches prospects with the right Medicare plan. Built with conditional logic and smart routing to the appropriate agent.</p>
+        <h3>Plan Matching Quiz Funnel</h3>
+        <p>A lead-qualifying quiz funnel that matches prospects with the right insurance plan. Built with conditional logic and smart routing to the appropriate agent.</p>
         <div class="project-meta">
           <span class="project-badge badge-funnel">Funnel</span>
         </div>
@@ -925,11 +943,10 @@
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #b45309, #f59e0b);">Medicare 101 Webinar</div>
+      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #b45309, #f59e0b);">Pre-Recorded Webinar</div>
       <div class="project-body">
-        <h3>Medicare 101 Webinar (Pre-Recorded)</h3>
-        <p class="project-client">T65 Projects 2026</p>
-        <p>Registration and delivery page for a pre-recorded Medicare education webinar. Captures leads and feeds them into an automated nurture sequence.</p>
+        <h3>Education Webinar Landing Page</h3>
+        <p>Registration and delivery page for a pre-recorded education webinar. Captures leads and feeds them into an automated nurture sequence.</p>
         <div class="project-meta">
           <span class="project-badge badge-landing">Landing Page</span>
         </div>
@@ -937,11 +954,10 @@
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #1e40af, #3b82f6);">AEP 2027 Campaign</div>
+      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #1e40af, #3b82f6);">Enrollment Campaign</div>
       <div class="project-body">
-        <h3>AEP 2027</h3>
-        <p class="project-client">Golden Years Design Benefits</p>
-        <p>Annual Enrollment Period campaign landing page designed to capture and convert Medicare beneficiaries during AEP. Connected to full automation workflows.</p>
+        <h3>Annual Enrollment Campaign</h3>
+        <p>Seasonal enrollment campaign landing page designed to capture and convert beneficiaries during open enrollment. Connected to full automation workflows.</p>
         <div class="project-meta">
           <span class="project-badge badge-landing">Landing Page</span>
         </div>
@@ -949,40 +965,37 @@
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #374151, #6b7280);">MMH Support Portal</div>
+      <img src="img/support-portal.jpg" alt="Knowledge Base & Support Portal" class="project-thumb" loading="lazy">
       <div class="project-body">
-        <h3>MMH — Support Portal</h3>
-        <p class="project-client">Golden Years Design Benefits</p>
-        <p>A self-service knowledge base and support portal for Medicare Helper users. Organized by topic with search functionality and GHL platform guides.</p>
+        <h3>Knowledge Base & Support Portal</h3>
+        <p>A self-service knowledge base and support portal for SaaS platform users. Organized by topic with search functionality and platform guides.</p>
         <div class="project-meta">
           <span class="project-badge badge-portal">Support Portal</span>
-          <a href="https://support.medicarehelper.net/mmh-support-portal" class="project-link" target="_blank">View live &#8594;</a>
+          <a href="https://support.medicarehelper.net/mmh-support-portal" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #1a4d5c, #3d8b7a);">Michael Danis Insurance</div>
+      <img src="img/michael-danis.jpg" alt="Insurance Agent Website" class="project-thumb" loading="lazy">
       <div class="project-body">
-        <h3>Michael Danis Insurance</h3>
-        <p class="project-client">Michael Danis Insurance</p>
-        <p>Full website build and brand identity for a New Jersey Medicare insurance agent. Includes booking flows, Medicare resource pages, and chat widget integration.</p>
+        <h3>Insurance Agent — Full Website</h3>
+        <p>Full website build and brand identity for a licensed insurance agent. Includes booking flows, resource pages, and chat widget integration.</p>
         <div class="project-meta">
           <span class="project-badge badge-website">Website + Brand</span>
-          <a href="https://michaeldanisinsurance.com/" class="project-link" target="_blank">View live &#8594;</a>
+          <a href="https://michaeldanisinsurance.com/" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #1a1a3e, #d4a843);">Book It Vacation Rentals</div>
+      <img src="img/book-it.jpg" alt="Vacation Rental Lead Gen Funnel" class="project-thumb" loading="lazy">
       <div class="project-body">
-        <h3>Book It Vacation Rentals</h3>
-        <p class="project-client">Parkland Properties NW LLC</p>
-        <p>Lead generation funnel for a vacation rental management company in Seattle. Captures property owner leads with a clean, conversion-optimized design and stats showcase.</p>
+        <h3>Vacation Rental Lead Gen Funnel</h3>
+        <p>Lead generation funnel for a vacation rental management company. Captures property owner leads with a clean, conversion-optimized design and stats showcase.</p>
         <div class="project-meta">
           <span class="project-badge badge-funnel">Funnel</span>
-          <a href="https://join.bookitvacationrentals.com/" class="project-link" target="_blank">View live &#8594;</a>
+          <a href="https://join.bookitvacationrentals.com/" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
@@ -990,8 +1003,7 @@
     <div class="project-card glass-card fade-in">
       <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #581c87, #a855f7);">Webinar Registration Automation</div>
       <div class="project-body">
-        <h3>AEP : PDP — Webinar Registration</h3>
-        <p class="project-client">Golden Years Design Benefits</p>
+        <h3>Webinar Registration Workflow</h3>
         <p>Multi-step workflow automation that handles webinar registrations end-to-end — from inbound webhook to contact creation, opportunity tracking, session-specific routing, and automated confirmations.</p>
         <div class="project-meta">
           <span class="project-badge badge-automation">Automation</span>
