@@ -303,60 +303,6 @@
       box-shadow: 0 0 20px var(--accent-glow);
     }
 
-    /* --- STATS --- */
-    .stats-strip {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 4rem 2rem;
-      background: var(--bg-alt);
-    }
-
-    .stats-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .stat-item { position: relative; }
-
-    .stat-item::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 40px;
-      background: var(--border);
-    }
-
-    .stat-item:last-child::after { display: none; }
-
-    .stat-number {
-      font-size: 2.8rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      font-family: var(--mono);
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 0.35rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
     /* --- SECTIONS --- */
     section {
       padding: 7rem 2rem;
@@ -1157,8 +1103,6 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .compare-grid { grid-template-columns: 1fr; }
       .why-features { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-      .stat-item:nth-child(2)::after { display: none; }
       .process-grid { grid-template-columns: 1fr; }
       .process-step { border-radius: 0 !important; }
       .process-step:first-child { border-radius: 16px 16px 0 0 !important; }
@@ -1175,8 +1119,6 @@
       .hero-subtitle { font-size: 0.9rem; }
       .hero p { font-size: 0.95rem; }
       .btn { padding: 0.8rem 1.5rem; font-size: 0.85rem; }
-      .stats-strip { padding: 3rem 1rem; }
-      .stat-number { font-size: 2rem; }
       .section-title { font-size: 1.6rem; }
       .compare-section, .why-section, .faq-section, .cta-section, .testimonial-section { padding: 4rem 1rem; }
       .compare-card h3 { font-size: 1.1rem; }
@@ -1227,27 +1169,6 @@
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats-strip">
-  <div class="stats-grid">
-    <div class="stat-item fade-in">
-      <div class="stat-number">50+</div>
-      <div class="stat-label">GHL Accounts Built</div>
-    </div>
-    <div class="stat-item fade-in">
-      <div class="stat-number">10K+</div>
-      <div class="stat-label">Leads Captured</div>
-    </div>
-    <div class="stat-item fade-in">
-      <div class="stat-number">200+</div>
-      <div class="stat-label">Automations Deployed</div>
-    </div>
-    <div class="stat-item fade-in">
-      <div class="stat-number">98%</div>
-      <div class="stat-label">Client Satisfaction</div>
-    </div>
-  </div>
-</div>
 
 <!-- BEFORE / AFTER -->
 <div class="compare-section">
