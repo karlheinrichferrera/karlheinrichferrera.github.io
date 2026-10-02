@@ -884,6 +884,27 @@
       align-items: start;
     }
 
+    .about-portrait {
+      margin-bottom: 2rem;
+    }
+
+    .portrait-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--border);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 40px var(--accent-glow);
+      transition: all 0.35s;
+    }
+
+    .portrait-img:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 60px rgba(99,102,241,0.15);
+      transform: translateY(-4px);
+    }
+
     .about-text p {
       color: var(--text-muted);
       margin-bottom: 1.25rem;
@@ -1629,6 +1650,9 @@
 
   <div class="about-grid" style="margin-top: 2rem;">
     <div class="about-text">
+      <div class="about-portrait">
+        <img src="img/karl-portrait.png" alt="Karl Heinrich Ferrera" class="portrait-img">
+      </div>
       <p>I'm <strong>Karl Heinrich Ferrera</strong>, a GoHighLevel specialist who helps businesses stop losing leads and start growing on autopilot.</p>
       <p>I don't just "set up software." I build <strong>systems that work</strong> — automations that follow up faster than any human could, funnels that convert, and CRMs that actually make sense to use.</p>
       <p>Whether you're a solo operator or an agency scaling to 100 clients, I'll build the GHL infrastructure that gets you there.</p>
