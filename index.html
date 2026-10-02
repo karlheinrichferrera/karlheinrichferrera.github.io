@@ -771,15 +771,26 @@
     }
 
     .testimonial-container {
-      max-width: 700px;
+      max-width: 1200px;
       margin: 0 auto;
-      text-align: center;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-card {
+      padding: 2rem;
+      text-align: left;
     }
 
     .testimonial-quote {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 500;
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 1.5rem;
       font-style: italic;
       color: var(--text);
@@ -907,6 +918,7 @@
       .about-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
       .stat-item:nth-child(2)::after { display: none; }
       .process-grid { grid-template-columns: 1fr; }
@@ -1232,10 +1244,18 @@
 </section>
 
 <div class="testimonial-section">
-  <div class="testimonial-container fade-in">
+  <div class="testimonial-container">
     <div class="section-label" style="justify-content: center;">Client feedback</div>
-    <p class="testimonial-quote">Karl has been a tremendous help to our business! He has helped us get much more out of GoHighLevel by creating funnel pages, improving our email marketing, and setting up automations to make our workflow more seamless. He also takes the time to explain the CRM functions so we can better understand and utilize our database. We truly appreciate his knowledge, patience, and support and highly recommend working with Karl!</p>
-    <p class="testimonial-author"><strong>— Client</strong> &middot; Insurance Industry</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card glass-card fade-in">
+        <p class="testimonial-quote">Karl has been a tremendous help to our business! He has helped us get much more out of GoHighLevel by creating funnel pages, improving our email marketing, and setting up automations to make our workflow more seamless. He also takes the time to explain the CRM functions so we can better understand and utilize our database. We truly appreciate his knowledge, patience, and support and highly recommend working with Karl!</p>
+        <p class="testimonial-author"><strong>— Client</strong> &middot; Insurance Industry</p>
+      </div>
+      <div class="testimonial-card glass-card fade-in">
+        <p class="testimonial-quote">Karl is great to work with! I had an issue between GoHighLevel and MailGun that I couldn't figure out. I set up an appointment with Karl, and he was able to diagnose the problem. He's fast, friendly, and very professional. I definitely recommend him.</p>
+        <p class="testimonial-author"><strong>— Client</strong> &middot; Digital Marketing Agency</p>
+      </div>
+    </div>
   </div>
 </div>
 
