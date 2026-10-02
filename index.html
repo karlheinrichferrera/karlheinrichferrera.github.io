@@ -568,6 +568,85 @@
       box-shadow: 0 4px 16px rgba(99,102,241,0.3);
     }
 
+    .btn-confidential {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-confidential:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 420px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .modal-box .modal-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-box h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-box p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-close {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover { transform: translateY(-1px); }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -921,45 +1000,49 @@
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #065f46, #10b981);">Medsupp Replacement Quiz</div>
+      <img src="img/supplement-quiz.jpg" alt="Insurance Supplement Quiz" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Insurance Supplement Quiz</h3>
         <p>Interactive quiz funnel that qualifies insurance supplement leads and routes them to agents. Integrated with workflow automations for instant follow-up.</p>
         <div class="project-meta">
           <span class="project-badge badge-funnel">Funnel</span>
+          <a href="https://goldenyearsdesignbenefits.net/medicare-match-quiz-page-001-9520" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #4338ca, #7c3aed);">Plan Matching Quiz</div>
+      <img src="img/plan-matching-quiz.jpg" alt="Plan Matching Quiz Funnel" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Plan Matching Quiz Funnel</h3>
         <p>A lead-qualifying quiz funnel that matches prospects with the right insurance plan. Built with conditional logic and smart routing to the appropriate agent.</p>
         <div class="project-meta">
           <span class="project-badge badge-funnel">Funnel</span>
+          <a href="https://goldenyearsdesignbenefits.net/medicare-match-quiz-page-001" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #b45309, #f59e0b);">Pre-Recorded Webinar</div>
+      <img src="img/webinar-landing.jpg" alt="Education Webinar Landing Page" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Education Webinar Landing Page</h3>
         <p>Registration and delivery page for a pre-recorded education webinar. Captures leads and feeds them into an automated nurture sequence.</p>
         <div class="project-meta">
           <span class="project-badge badge-landing">Landing Page</span>
+          <a href="https://goldenyearsseminars.com/medicare-101-webinar-557569" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #1e40af, #3b82f6);">Enrollment Campaign</div>
+      <img src="img/aep-campaign.jpg" alt="Annual Enrollment Campaign" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Annual Enrollment Campaign</h3>
         <p>Seasonal enrollment campaign landing page designed to capture and convert beneficiaries during open enrollment. Connected to full automation workflows.</p>
         <div class="project-meta">
           <span class="project-badge badge-landing">Landing Page</span>
+          <a href="https://aep.goldenyearsdesignbenefits.net/2027" class="btn-live" target="_blank">View Live &#8594;</a>
         </div>
       </div>
     </div>
@@ -1001,12 +1084,37 @@
     </div>
 
     <div class="project-card glass-card fade-in">
-      <div class="project-thumb-placeholder" style="background: linear-gradient(135deg, #581c87, #a855f7);">Webinar Registration Automation</div>
+      <img src="img/webinar-workflows.jpg" alt="Webinar Workflows" class="project-thumb" loading="lazy">
       <div class="project-body">
-        <h3>Webinar Registration Workflow</h3>
-        <p>Multi-step workflow automation that handles webinar registrations end-to-end — from inbound webhook to contact creation, opportunity tracking, session-specific routing, and automated confirmations.</p>
+        <h3>Webinar Workflows</h3>
+        <p>Suite of workflow automations handling webinar registrations end-to-end — from inbound webhooks to contact creation, opportunity tracking, session-specific routing, and automated confirmations.</p>
         <div class="project-meta">
           <span class="project-badge badge-automation">Automation</span>
+          <button class="btn-confidential" onclick="showConfidential()">&#128274; Confidential</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card glass-card fade-in">
+      <img src="img/lead-distribution.jpg" alt="Lead Distribution Workflow" class="project-thumb" loading="lazy">
+      <div class="project-body">
+        <h3>Lead Distribution Workflow</h3>
+        <p>Automated lead routing workflow that distributes inbound leads to the right agents based on criteria, availability, and assignment rules — ensuring fast follow-up and zero missed opportunities.</p>
+        <div class="project-meta">
+          <span class="project-badge badge-automation">Automation</span>
+          <button class="btn-confidential" onclick="showConfidential()">&#128274; Confidential</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card glass-card fade-in">
+      <img src="img/campaign-workflows.jpg" alt="Insurance Campaign & Appointment Booking Workflow" class="project-thumb" loading="lazy">
+      <div class="project-body">
+        <h3>Insurance Campaign + Appointment Booking</h3>
+        <p>End-to-end campaign workflows combining outbound marketing with automated appointment booking. Handles lead nurture, SMS/email sequences, calendar scheduling, and confirmation flows.</p>
+        <div class="project-meta">
+          <span class="project-badge badge-automation">Automation</span>
+          <button class="btn-confidential" onclick="showConfidential()">&#128274; Confidential</button>
         </div>
       </div>
     </div>
@@ -1177,7 +1285,24 @@
   <p>&copy; 2026 Karl Heinrich Ferrera. All rights reserved.</p>
 </footer>
 
+<div class="modal-overlay" id="confidentialModal" onclick="hideConfidential(event)">
+  <div class="modal-box">
+    <div class="modal-icon">&#128274;</div>
+    <h3>Confidential Project</h3>
+    <p>This workflow contains proprietary automation logic built for a client. Live previews are not available for confidential projects to protect client data and business processes.</p>
+    <button class="modal-close" onclick="hideConfidential(event)">Got it</button>
+  </div>
+</div>
+
 <script>
+  function showConfidential() {
+    document.getElementById('confidentialModal').classList.add('active');
+  }
+  function hideConfidential(e) {
+    if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close'))
+      document.getElementById('confidentialModal').classList.remove('active');
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
