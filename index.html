@@ -877,42 +877,174 @@
     }
 
     /* --- ABOUT --- */
-    .about-grid {
+    .about-section {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 2rem;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .about-hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 320px 1fr;
+      gap: 3.5rem;
       align-items: start;
     }
 
-    .about-portrait {
-      margin-bottom: 2rem;
+    .about-photo-col {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .portrait-frame {
+      position: relative;
+      padding: 3px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 40px rgba(99,102,241,0.15);
     }
 
     .portrait-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 16px;
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 17px;
       object-fit: cover;
       object-position: top;
-      border: 2px solid var(--border);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 40px var(--accent-glow);
-      transition: all 0.35s;
+      display: block;
+      background: var(--bg);
     }
 
-    .portrait-img:hover {
-      border-color: var(--accent);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 60px rgba(99,102,241,0.15);
-      transform: translateY(-4px);
+    .about-name-card {
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
 
-    .about-text p {
+    .about-name-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-title-text {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      font-size: 1rem;
-      line-height: 1.75;
+      font-family: var(--mono);
+      margin-bottom: 0.75rem;
     }
 
-    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      font-family: var(--mono);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .about-stat {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+
+    .about-stat:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-glass);
+    }
+
+    .stat-value {
+      display: block;
+      font-family: var(--mono);
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .about-content-col { min-width: 0; }
+
+    .about-bio {
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-bio p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-bio p strong { color: var(--text); font-weight: 600; }
+
+    .about-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .role-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+
+    .role-chip:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-glass);
+      transform: translateY(-2px);
+    }
+
+    .role-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .about-tools { margin-top: 0.5rem; }
 
     .skills-list {
       display: flex;
@@ -1146,7 +1278,8 @@
       }
       nav ul.open { right: 0; }
       nav a { padding: 0.75rem 1rem; font-size: 0.9rem; display: block; }
-      .about-grid { grid-template-columns: 1fr; }
+      .about-hero-grid { grid-template-columns: 1fr; }
+      .about-photo-col { position: static; max-width: 320px; margin: 0 auto; }
       .services-grid { grid-template-columns: 1fr; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1176,7 +1309,7 @@
       .faq-question { font-size: 0.9rem; padding: 1rem 0; }
       .project-body { padding: 1.25rem; }
       .project-body h3 { font-size: 1.1rem; }
-      .about-grid { gap: 2rem; }
+      .about-hero-grid { gap: 2rem; }
       .cta-section { padding: 5rem 1rem; }
       .cta-section .section-title { font-size: 1.5rem; }
     }
@@ -1644,42 +1777,82 @@
 </div>
 
 <!-- ABOUT -->
-<section id="about">
-  <span class="pill-badge section-badge">About</span>
-  <h2 class="section-title">The Person Behind the Builds.</h2>
-
-  <div class="about-grid" style="margin-top: 2rem;">
-    <div class="about-text">
-      <div class="about-portrait">
-        <img src="img/karl-portrait.png" alt="Karl Heinrich Ferrera" class="portrait-img">
-      </div>
-      <p>I'm <strong>Karl Heinrich Ferrera</strong>, a GoHighLevel CRM and Automation Specialist, Funnel Builder, and Marketing Support Professional based in the Philippines.</p>
-      <p>I help businesses <strong>organize their CRM</strong>, automate repetitive tasks, and create a clear process from lead capture to appointment booking and client onboarding. I work with clients in Medicare insurance, vacation rentals, and business coaching, adapting each system to their services and customer journey.</p>
-      <p>My expertise includes <strong>GoHighLevel account setup</strong>, workflow automation, pipeline management, website and funnel development, email and SMS campaigns, calendar integrations, and technical support. I also provide social media management, graphic design, and video editing to support your marketing efforts.</p>
-      <p>As a <strong>VA team lead and marketing project manager</strong>, I handle both implementation and coordination. I translate business needs into practical workflows, keep projects moving, and help teams use their systems with confidence.</p>
-      <p>Whether you need a funnel, a CRM setup, custom automations, or ongoing marketing support, I focus on <strong>reducing your manual workload</strong> and improving how you capture, follow up with, and serve your leads and clients.</p>
+<div class="about-section" id="about">
+  <div class="about-container">
+    <div class="about-header">
+      <span class="pill-badge section-badge">About</span>
+      <h2 class="section-title">The Person Behind the Builds.</h2>
     </div>
-    <div>
-      <span class="pill-badge section-badge" style="margin-bottom:1.5rem;">Tools & Expertise</span>
-      <div class="skills-list">
-        <span class="skill-tag">GoHighLevel</span>
-        <span class="skill-tag">CRM Architecture</span>
-        <span class="skill-tag">Workflow Automation</span>
-        <span class="skill-tag">Funnel Building</span>
-        <span class="skill-tag">API Integrations</span>
-        <span class="skill-tag">Zapier</span>
-        <span class="skill-tag">Stripe</span>
-        <span class="skill-tag">SMS & Email Marketing</span>
-        <span class="skill-tag">Google My Business</span>
-        <span class="skill-tag">Facebook Ads</span>
-        <span class="skill-tag">White-Label SaaS</span>
-        <span class="skill-tag">Snapshot Templates</span>
-        <span class="skill-tag">HTML/CSS</span>
-        <span class="skill-tag">JavaScript</span>
+
+    <div class="about-hero-grid">
+      <div class="about-photo-col">
+        <div class="portrait-frame">
+          <img src="img/karl-portrait.png" alt="Karl Heinrich Ferrera" class="portrait-img">
+        </div>
+        <div class="about-name-card">
+          <h3>Karl Heinrich Ferrera</h3>
+          <p class="about-title-text">GHL Specialist &bull; Funnel Builder &bull; Marketing Support</p>
+          <div class="about-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Philippines</span>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="stat-value">10+</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-value">5+</span>
+            <span class="stat-label">Industries Served</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content-col">
+        <div class="about-bio glass-card">
+          <div class="card-accent"></div>
+          <p>I help businesses <strong>organize their CRM</strong>, automate repetitive tasks, and create a clear process from lead capture to appointment booking and client onboarding. I work with clients in Medicare insurance, vacation rentals, and business coaching, adapting each system to their services and customer journey.</p>
+          <p>My expertise includes <strong>GoHighLevel account setup</strong>, workflow automation, pipeline management, website and funnel development, email and SMS campaigns, calendar integrations, and technical support. I also provide social media management, graphic design, and video editing to support your marketing efforts.</p>
+          <p>As a <strong>VA team lead and marketing project manager</strong>, I handle both implementation and coordination. I translate business needs into practical workflows, keep projects moving, and help teams use their systems with confidence.</p>
+          <p>Whether you need a funnel, a CRM setup, custom automations, or ongoing marketing support, I focus on <strong>reducing your manual workload</strong> and improving how you capture, follow up with, and serve your leads and clients.</p>
+        </div>
+
+        <div class="about-roles">
+          <div class="role-chip"><span class="role-dot" style="background:var(--accent);"></span> CRM & Automation Specialist</div>
+          <div class="role-chip"><span class="role-dot" style="background:var(--green);"></span> Funnel Builder</div>
+          <div class="role-chip"><span class="role-dot" style="background:var(--orange);"></span> Marketing Support</div>
+          <div class="role-chip"><span class="role-dot" style="background:var(--purple);"></span> VA Team Lead</div>
+          <div class="role-chip"><span class="role-dot" style="background:var(--pink);"></span> Project Manager</div>
+        </div>
+
+        <div class="about-tools">
+          <span class="pill-badge section-badge" style="margin-bottom:1.25rem;">Tools & Expertise</span>
+          <div class="skills-list">
+            <span class="skill-tag">GoHighLevel</span>
+            <span class="skill-tag">CRM Architecture</span>
+            <span class="skill-tag">Workflow Automation</span>
+            <span class="skill-tag">Funnel Building</span>
+            <span class="skill-tag">API Integrations</span>
+            <span class="skill-tag">Zapier</span>
+            <span class="skill-tag">Stripe</span>
+            <span class="skill-tag">SMS & Email Marketing</span>
+            <span class="skill-tag">Google My Business</span>
+            <span class="skill-tag">Facebook Ads</span>
+            <span class="skill-tag">White-Label SaaS</span>
+            <span class="skill-tag">Snapshot Templates</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CTA -->
 <div class="cta-section" id="contact">
