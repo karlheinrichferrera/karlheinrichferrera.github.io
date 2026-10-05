@@ -455,6 +455,47 @@
     }
 
     /* --- PORTFOLIO --- */
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--border-hover);
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -1391,9 +1432,16 @@
   <h2 class="section-title">Real Projects, Real Results.</h2>
   <p class="section-desc">Landing pages, funnels, automations, and full websites I've built for clients across industries.</p>
 
-  <div class="portfolio-grid" style="text-align:left;">
+  <div class="portfolio-filters">
+    <button class="filter-btn active" onclick="filterPortfolio('all', this)">All Projects</button>
+    <button class="filter-btn" onclick="filterPortfolio('funnels', this)">Funnels & Landing Pages</button>
+    <button class="filter-btn" onclick="filterPortfolio('websites', this)">Websites & Portals</button>
+    <button class="filter-btn" onclick="filterPortfolio('automations', this)">Automations</button>
+  </div>
 
-    <div class="project-card glass-card fade-in">
+  <div class="portfolio-grid" id="portfolioGrid" style="text-align:left;">
+
+    <div class="project-card glass-card fade-in" data-category="funnels">
       <img src="img/medicare-helper.jpg" alt="Insurtech CRM Landing Page" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Insurtech CRM — Landing Page</h3>
@@ -1405,7 +1453,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="funnels">
       <img src="img/supplement-quiz.jpg" alt="Insurance Supplement Quiz" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Insurance Supplement Quiz</h3>
@@ -1417,7 +1465,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="funnels">
       <img src="img/plan-matching-quiz.jpg" alt="Plan Matching Quiz Funnel" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Plan Matching Quiz Funnel</h3>
@@ -1429,7 +1477,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="funnels">
       <img src="img/webinar-landing.jpg" alt="Education Webinar Landing Page" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Education Webinar Landing Page</h3>
@@ -1441,7 +1489,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="funnels">
       <img src="img/aep-campaign.jpg" alt="Annual Enrollment Campaign" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Annual Enrollment Campaign</h3>
@@ -1453,31 +1501,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
-      <img src="img/support-portal.jpg" alt="Knowledge Base & Support Portal" class="project-thumb" loading="lazy">
-      <div class="project-body">
-        <h3>Knowledge Base & Support Portal</h3>
-        <p>A self-service knowledge base and support portal for SaaS platform users. Organized by topic with search functionality and platform guides.</p>
-        <div class="project-meta">
-          <span class="project-badge badge-portal">Support Portal</span>
-          <a href="https://support.medicarehelper.net/mmh-support-portal" class="btn-live" target="_blank">View Live &#8594;</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card glass-card fade-in">
-      <img src="img/michael-danis.jpg" alt="Insurance Agent Website" class="project-thumb" loading="lazy">
-      <div class="project-body">
-        <h3>Insurance Agent — Full Website</h3>
-        <p>Full website build and brand identity for a licensed insurance agent. Includes booking flows, resource pages, and chat widget integration.</p>
-        <div class="project-meta">
-          <span class="project-badge badge-website">Website + Brand</span>
-          <a href="https://michaeldanisinsurance.com/" class="btn-live" target="_blank">View Live &#8594;</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="funnels">
       <img src="img/book-it.webp" alt="Vacation Rental Lead Gen Funnel" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Vacation Rental Lead Gen Funnel</h3>
@@ -1489,7 +1513,31 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="websites">
+      <img src="img/support-portal.jpg" alt="Knowledge Base & Support Portal" class="project-thumb" loading="lazy">
+      <div class="project-body">
+        <h3>Knowledge Base & Support Portal</h3>
+        <p>A self-service knowledge base and support portal for SaaS platform users. Organized by topic with search functionality and platform guides.</p>
+        <div class="project-meta">
+          <span class="project-badge badge-portal">Support Portal</span>
+          <a href="https://support.medicarehelper.net/mmh-support-portal" class="btn-live" target="_blank">View Live &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card glass-card fade-in" data-category="websites">
+      <img src="img/michael-danis.jpg" alt="Insurance Agent Website" class="project-thumb" loading="lazy">
+      <div class="project-body">
+        <h3>Insurance Agent — Full Website</h3>
+        <p>Full website build and brand identity for a licensed insurance agent. Includes booking flows, resource pages, and chat widget integration.</p>
+        <div class="project-meta">
+          <span class="project-badge badge-website">Website + Brand</span>
+          <a href="https://michaeldanisinsurance.com/" class="btn-live" target="_blank">View Live &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card glass-card fade-in" data-category="automations">
       <img src="img/webinar-workflows.jpg" alt="Webinar Workflows" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Webinar Workflows</h3>
@@ -1501,7 +1549,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="automations">
       <img src="img/lead-distribution.jpg" alt="Lead Distribution Workflow" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Lead Distribution Workflow</h3>
@@ -1513,7 +1561,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="automations">
       <img src="img/campaign-workflows.jpg" alt="Insurance Campaign & Appointment Booking Workflow" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Insurance Campaign + Appointment Booking</h3>
@@ -1525,7 +1573,7 @@
       </div>
     </div>
 
-    <div class="project-card glass-card fade-in">
+    <div class="project-card glass-card fade-in" data-category="automations">
       <img src="img/medsupp-workflow.webp" alt="Medsupp Replacement Campaign Communications Workflow" class="project-thumb" loading="lazy">
       <div class="project-body">
         <h3>Medsupp Campaign — Smart Reply Workflow</h3>
@@ -1918,6 +1966,18 @@
   function hideConfidential(e) {
     if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close'))
       document.getElementById('confidentialModal').classList.remove('active');
+  }
+
+  function filterPortfolio(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#portfolioGrid .project-card').forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
   }
 
   function toggleFaq(btn) {
