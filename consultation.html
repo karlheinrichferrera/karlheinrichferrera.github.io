@@ -557,7 +557,7 @@
       });
     },
     onApprove: function(data, actions) {
-      window.location.href = '/thank-you.html?sub=' + data.subscriptionID;
+      window.location.replace('/thank-you.html?sub=' + data.subscriptionID);
     }
   }).render('#paypal-button-container-P-25B74433CL289913JNLTXGTI');
 </script>
